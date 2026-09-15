@@ -127,6 +127,7 @@ docker compose ps
 - `你是谁？用一句话介绍自己`
 - `你有什么项目经验？`
 - `你的 GPA 是多少？`
+- `你抗压能力怎么样？讲一个具体的例子`（测试 L6 软素质答案）
 - `你最不擅长什么？`（测试边界约束）
 
 ## 项目结构
@@ -156,8 +157,11 @@ personal-knowledge-agent-demo/
 3. **一致性约束**：回答口径必须与知识库（简历）完全一致，不新增、不夸大、不编造
 4. **风格控制**：口语化、真诚、避免 AI 腔，回答控制在 2-4 句话
 5. **敏感信息保护**：不主动透露联系方式、薪资等敏感信息
+6. **软素质兜底（v2 新增）**：软素质类问题（抗压、协作、缺点、职业规划）优先从知识库 L6 层提取现成答案，修复"行为面试题答不上来"的翻车点
+7. **数字证据优先（v2 新增）**：回答优先引用量化成果（准确率、耗时、吞吐、排名），增强说服力
+8. **追问闭环（v2 新增）**：技术细节追问时引用 L2 经历的"可追问细节"，防止细节层面编造
 
-完整模板见 [prompts/system-prompt-template.md](prompts/system-prompt-template.md)。
+知识库采用 **L1-L6 分层结构**（身份定位 / 经历 / 硬指标 / 技能 / 亮点 / 面试问答），完整模板见 [prompts/system-prompt-template.md](prompts/system-prompt-template.md)，示例知识库见 [examples/knowledge-base-sample.md](examples/knowledge-base-sample.md)。
 
 ## 隐私保护说明
 
